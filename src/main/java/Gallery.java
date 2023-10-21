@@ -4,7 +4,7 @@ public class Gallery {
     private String name;
     private int till;
     private ArrayList<Artwork> stock;
-
+// ArrayList<Artwork> is datatype and stock is the name
     public Gallery(String name){
         this.name = name;
         this.till = 0;

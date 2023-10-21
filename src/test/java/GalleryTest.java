@@ -59,7 +59,7 @@ public class GalleryTest {
 
     @Test
     public void canSellArtwork(){
-        Customer tom = new Customer("tom");
+        Customer tom = new Customer("tom",200);
         tate.sellArtwork(sky,tom);
         assertThat(tate.getTill()).isEqualTo(50);
         assertThat(tom.getWallet()).isEqualTo(450);
@@ -68,14 +68,14 @@ public class GalleryTest {
 
     @Test
     public void canRemoveArtwork(){
-        Customer tom = new Customer("tom");
+        Customer tom = new Customer("tom", 200);
         tate.sellArtwork(sky,tom);
         assertThat(tate.getStockCount()).isEqualTo(1);
     }
 
     @Test
     public void canNotSellArtwork(){
-        Customer tom = new Customer("tom");
+        Customer tom = new Customer("tom", 200);
         tom.setWallet(20);
         tate.sellArtwork(sky,tom);
         assertThat(tate.getTill()).isEqualTo(0);

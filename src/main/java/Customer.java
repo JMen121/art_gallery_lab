@@ -7,9 +7,9 @@ public class Customer {
     private int wallet;
     private ArrayList<Artwork> artCollection;
 
-    public Customer(String name){
+    public Customer(String name, int wallet){
         this.name = name;
-        this.wallet = 500;
+        this.wallet = wallet;
         this.artCollection = new ArrayList<>();
     }
 
@@ -41,13 +41,26 @@ public class Customer {
         this.artCollection.add(newArtwork);
     }
 
-    public void setArtCollection(ArrayList<Artwork> artCollection) {
+    //boolean if customer has more amount than the art work price then return
+    public boolean hasEnoughMoney(Artwork artwork) {
+        if (artwork.getPrice() > this.wallet){
+            System.out.println("Sorry, you do not have sufficient funds!");
+            return false;
+        } else {
+            System.out.println("You have sufficient funds, you'll be able to buy this artwork");
+            return true;
+        }
+    }
+
+   public void setArtCollection(ArrayList<Artwork> artCollection) {
         this.artCollection = artCollection;
     }
-//    public void buyArtwork(Gallery gallery, Artwork artwork){
-//        customer buys artwork for specific price if they have enough money
-//        check that wallet > artwork price
-//        if yes wallet - artwork price and till + artwork price
 
-//    }
-}
+
+//   My process behind the code
+//   customer buys artwork for specific price if they have enough money
+//   check that wallet > artwork price
+//   if yes wallet - artwork price and till + artwork price
+
+  }
+

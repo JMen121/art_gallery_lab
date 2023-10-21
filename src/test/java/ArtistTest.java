@@ -10,6 +10,7 @@ public class ArtistTest {
     @BeforeEach
     public void setUp() {
         john = new Artist("John");
+
     }
 
     @Test

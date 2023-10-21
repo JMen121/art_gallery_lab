@@ -6,10 +6,15 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CustomerTest {
 
     Customer greg;
+    Artwork wall;
+    Artist daScary;
 
     @BeforeEach
-    public void setup(){
-    greg = new Customer("greg");
+    public void setup() {
+        greg = new Customer("greg", 20);
+        wall = new Artwork("Sunflower",daScary, 2000);
+        daScary = new Artist("daScary");
+
     }
 
     @Test
@@ -51,4 +56,20 @@ public class CustomerTest {
         greg.addArtCollection(sunrise);
         assertThat(greg.getArtCollectionCount()).isEqualTo(1);
     }
+
+
+    @Test
+    public void doesNotEnoughMoney(){
+        greg.setWallet(20);
+        assertThat(greg.hasEnoughMoney(wall)).isFalse();
+    }
+
+
+   @Test
+    public void hasEnoughMoney(){
+       greg.setWallet(50000);
+        assertThat(greg.hasEnoughMoney(wall)).isTrue();
+   }
+
+
 }
