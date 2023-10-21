@@ -40,20 +40,14 @@ public class Gallery {
     public void addStock(Artwork newArtwork) {
         this.stock.add(newArtwork);
     }
-    public void sellArtwork(Artwork artwork, Customer customer) {
-//        get specific artwork object from array list stock
+    //    get specific artwork object from array list stock
 //        check price of artwork
 //        increase till by that amount and decrease customers wallet by that amount
-        if(customer.getWallet()> artwork.getPrice()) {
-            this.till += artwork.getPrice();
+    public void sellArtwork(Artwork artwork, Customer customer) {
+        if (customer.hasEnoughMoney(artwork))
             customer.payItem(artwork.getPrice());
-            this.stock.remove(artwork);
-            customer.addArtCollection(artwork);
-
-        }else{
-            System.out.println("You do not have sufficient funds - unable to purchase artwork.");
-        }
-    }
+        this.till += artwork.getPrice();
+        customer.payItem(artwork.getPrice());}
 
     public int stock_take(){
         int total = 0;
